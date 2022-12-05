@@ -1,0 +1,35 @@
+*, *::after, *::before{
+    box-sizing: border-box;
+}
+html {
+    min-height: 100vh;
+}
+body{
+    background: #ccc;
+    margin: 0;
+    height:100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+}
+body > div {
+    scroll-snap-type: y proximity;
+    height: 100vh;
+    overflow: scroll;
+}
+div.gallery-image{
+    height: 100vh;
+    width: 100%;
+    scroll-snap-align:  center;
+    overflow: hidden;
+}
+
+.gallery-image > img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+

@@ -1,0 +1,67 @@
+
+import { gqlClient } from "../lib/graphql-client";
+import {gql} from "graphql-request";
+import Image from "next/image"
+
+interface galleryItem{
+    id: string,
+    fileName: string,
+    assetTitle: string,
+    assetDescription: string,
+    url: string,
+    width: number,
+    height: number
+}
+
+interface gallery{
+    createdAt: string,
+    gallerySlug: string,
+    id: string,
+    publishedAt: string,
+    title: string,
+    updatedAt: string,
+    galleryItems: galleryItem
+}
+
+
+const getMainGalleryQuery = gql`query Galleries {
+    galleries(where: {gallerySlug:"main-gallery"}) {
+      createdAt
+      gallerySlug
+      id
+      publishedAt
+      title
+      updatedAt
+      galleryItems{
+        id,
+        fileName,
+        assetTitle,
+        assetDescription,
+        url,
+        width,
+        height
+      }
+    }
+  }`;
+
+
+const Page = async ()=>{
+    const gal = await gqlClient.request(getMainGalleryQuery);
+    let items = gal.galleries[0].galleryItems;
+
+    return(
+        <>
+                {
+                items.map((e: galleryItem) =>{
+                    return(<div className="gallery-image" key={e.id}>
+                    <Image src={e.url} alt={e.assetTitle} width={e.width} height={e.height} loading="lazy"></Image>
+                    </div>
+                    )
+                })
+                }
+          
+        </>
+    )
+}
+
+export default Page;
