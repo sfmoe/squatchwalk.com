@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 
-export default function ClientApp({ children }) {
+export default function ClientApp({ children } : any) {
   useEffect(() => {
     scrolling();
   });
