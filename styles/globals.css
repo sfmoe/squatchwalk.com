@@ -32,4 +32,40 @@ div.gallery-image{
     height: 100%;
 }
 
+body{
+padding-top: 50px;
+}
+body > header{
+    background: black;
+    color: #fff;
+    position: fixed;
+    width:100%;
+    min-height: 50px;
+    top: 0;
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+body > header > div{ 
+    flex-grow: 1;
+}
+
+body > header div:first-of-type{
+    display: flex;
+    flex-direction: column;
+}
+body > header div:last-of-type{
+    text-align: right;
+    padding-top: 12px;
+}
+
+a{
+    color: tomato;
+}
+h1{
+    margin: 0;
+    padding: 0;
+}
+
 
