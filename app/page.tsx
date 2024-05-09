@@ -6,8 +6,8 @@ import Image from "next/image"
 interface galleryItem{
     id: string,
     fileName: string,
-    assetTitle: string,
-    assetDescription: string,
+    // assetTitle: string,
+    // assetDescription: string,
     url: string,
     width: number,
     height: number
@@ -35,8 +35,6 @@ const getMainGalleryQuery = gql`query Galleries {
       galleryItems{
         id,
         fileName,
-        assetTitle,
-        assetDescription,
         url,
         width,
         height
@@ -54,7 +52,7 @@ const Page = async ()=>{
                 {
                 items.map((e: galleryItem) =>{
                     return(<div className="gallery-image" key={e.id}>
-                    <Image src={e.url} alt={e.assetTitle} width={e.width} height={e.height} loading="lazy"></Image>
+                    <Image src={e.url} alt={e.fileName} width={e.width} height={e.height} loading="lazy"></Image>
                     </div>
                     )
                 })

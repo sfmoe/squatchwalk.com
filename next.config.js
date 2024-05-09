@@ -2,15 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  experimental: {
-    // Required:
-    appDir: true,
-  },
   images:{
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "media.graphassets.com",
+        hostname: "us-east-1-shared-usea1-02.graphassets.com",
         pathname: "/**"
       }
     ]
